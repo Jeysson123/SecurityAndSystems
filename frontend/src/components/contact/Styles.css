@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5em;
+}
+
+form :is(input, textarea) {
+    outline: none;
+    padding: .75em 1em;
+    text-align: center;
+    letter-spacing: 3px;
+    width: 100% !important;
+    resize: none;
+}
+
+form :is(input, textarea)::placeholder {
+    color: rgba(128, 128, 128, 0.75);
+}
+
+form :is(input[type="submit"]) {
+    background-color: color-mix(in lab, var(--mainColor), black 25%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.25em;
+    outline: 1px solid white;
+}
+
+form :is(input[type="submit"]):hover {
+    background-color: white;
+    color: var(--mainColor);
+    cursor: pointer;
+}
+
+.error {
+    border-color: red !important;
+}
+
+.error-message {
+    color: white;
+    font-size: 0.875em;
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+    display: block;
+}
+
+@media (width <= 600px) {
+    form :is(input, textarea) {
+        padding: .5em .75em;
+    }
+}
+

@@ -1,0 +1,52 @@
+/* src/components/Header.css */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #4c924e;
+    color: white;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: rgba(255, 255, 255);
+    filter: drop-shadow(0 3px 3px black);
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    aspect-ratio: 1.5/1;
+    width: 5em;
+    
+    &:hover {
+      scale: 1.25;
+    }
+  }
+  
+  .user-info-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-image {
+    aspect-ratio: 1;
+    width: 3.5em;
+    border-radius: 50%;
+    margin-right: 10px;
+
+    &:hover {
+      scale: 1.25;
+    }
+  }
+  
+  .user-name {
+    font-size: 1.25rem;
+  }
+  

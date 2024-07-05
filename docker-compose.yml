@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  nextjs-backend:
+    container_name: nextjs-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - nest-backend
+
+  nest-backend:
+    container_name: nest-backend
+    build:
+      context: ./backup_nest
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+
+  react-frontend:
+    container_name: react-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"

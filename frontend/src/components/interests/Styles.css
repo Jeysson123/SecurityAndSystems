@@ -1,0 +1,66 @@
+:root {
+  --em-positivo: 15vmin;
+  --em-negativo: calc(var(--em-positivo) - calc(var(--em-positivo) * 2));
+  --rotateX: 0;
+  --rotateY: 0;
+}
+
+.espacio {
+  transform-style: preserve-3d;
+  perspective: 25in;
+  position: relative;
+}
+
+.cubo {
+  transform-style: preserve-3d;
+  transform: rotateX(calc(var(--rotateY) + 15deg)) rotateY(calc(var(--rotateX) + 15deg));
+  height: calc(var(--em-positivo) * 2);
+  aspect-ratio: 1;
+  position: absolute;
+  top: var(--em-negativo);
+  left: var(--em-negativo);
+  transition: 150ms linear;
+}
+
+.frente, .derecha, .tracera, .izquierda, .tapa, .fondo {
+  width: 99.5%;
+  aspect-ratio: 1;
+  background-color: beige;
+  position: absolute;
+  box-shadow: 0 0 calc(var(--em-positivo) / 2) 5px rgba(0, 0, 0, 0.5) inset;
+  outline: calc(var(--em-positivo) / 10) double darkcyan;
+  outline-offset: calc(var(--em-negativo) / 10);
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+  backface-visibility: hidden;
+}
+
+.cubo p {
+  user-select: none;
+  font-size: calc(var(--em-positivo) / 2.5);
+  hyphens: auto;
+  max-width: 6ch;
+  word-wrap: break-word;
+  font-weight: bolder;
+  font-family: monospace;
+  color: darkslategray;
+}
+
+.fondo p {
+  text-decoration: underline;
+}
+
+.frente {transform: translateZ(var(--em-positivo));}
+.derecha {transform: rotateY(90deg) translateZ(var(--em-positivo));}
+.tracera {transform: rotateY(180deg) translateZ(var(--em-positivo));}
+.izquierda {transform: rotateY(-90deg) translateZ(var(--em-positivo));}
+.tapa {transform: translateY(var(--em-positivo)) rotateX(-90deg);}
+.fondo {transform: translateY(var(--em-negativo)) rotateX(90deg);}
+
+
+@media (width <= 600px) {
+  :root {
+    --em-positivo: 10vmin;
+  }
+}
